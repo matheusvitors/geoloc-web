@@ -1,48 +1,48 @@
-// import React from "react";
-// import ReactDOM from "react-dom";
-// import App from "./App";
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//       <App />
-//   </React.StrictMode>,
-//   document.getElementById("root")
-// );
-
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
+import App from "App";
 
-const render = (status) => {
-  if (status === Status.LOADING) return <h3>{status} ..</h3>;
-  if (status === Status.FAILURE) return <h3>{status} ...</h3>;
-  return null;
-};
+ReactDOM.render(
+  <React.StrictMode>
+      <App />
+  </React.StrictMode>,
+  document.getElementById("root")
+);
 
-function MyMapComponent({
-  center,
-  zoom, }) {
-  const ref = useRef();
+// import React, { useEffect, useRef } from "react";
+// import ReactDOM from "react-dom";
+// import { Wrapper, Status } from "@googlemaps/react-wrapper";
 
-  useEffect(() => {
-    new window.google.maps.Map(ref.current, {
-      center,
-      zoom,
-    });
-  });
+// const render = (status) => {
+//   if (status === Status.LOADING) return <h3>{status} ..</h3>;
+//   if (status === Status.FAILURE) return <h3>{status} ...</h3>;
+//   return null;
+// };
 
-  return <div ref={ref} id="map" />;
-}
+// function MyMapComponent({
+//   center,
+//   zoom, }) {
+//   const ref = useRef();
 
-function App() {
-  const center = { lat: -34.397, lng: 150.644 };
-  const zoom = 4;
+//   useEffect(() => {
+//     new window.google.maps.Map(ref.current, {
+//       center,
+//       zoom,
+//     });
+//   });
 
-  return (
-    <Wrapper apiKey={process.env.REACT_APP_API_GOOGLE} render={render}>
-      <MyMapComponent center={center} zoom={zoom} />
-    </Wrapper>
-  );
-}
+//   return <div ref={ref} id="map" />;
+// }
 
-ReactDOM.render(<App />, document.querySelector("#root"));
+// function App() {
+//   const center = { lat: -34.397, lng: 150.644 };
+//   const zoom = 4;
+
+//   return (
+//     <Wrapper style={{ display: "flex", height: "100%", width: "100%", background: "black"}}  apiKey={process.env.REACT_APP_API_GOOGLE} render={render}>
+//       <MyMapComponent center={center} zoom={zoom} />
+//     </Wrapper>
+//   );
+// }
+
+// ReactDOM.render(<App />, document.querySelector("#root"));

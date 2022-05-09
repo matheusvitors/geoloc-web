@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Wrapper } from "@googlemaps/react-wrapper";
 import useDeepCompareEffectForMaps from "../../hooks/useDeepCompareEffectForMaps";
 
 export const Map = ({ onClick, onIdle, children, style, ...options }) => {
@@ -18,7 +19,11 @@ export const Map = ({ onClick, onIdle, children, style, ...options }) => {
         }
     }, [map, options]);
 
-    return <div ref={ref} style={style} />;
+    return (
+        <Wrapper  apiKey={process.env.REACT_APP_API_GOOGLE}>
+            <div ref={ref} style={style} />
+        </Wrapper>
+    );
 };
 
 export default Map;
