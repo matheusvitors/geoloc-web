@@ -1,7 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-// import * as T from 'about-colors-js';
-import { hexToRGBA } from "utils/colors";
 
 
 export const TextInput = ({ label, onChange, type }) => {
