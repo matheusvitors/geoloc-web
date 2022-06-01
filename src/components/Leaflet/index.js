@@ -1,5 +1,5 @@
-import React from "react";
-import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import React, { useEffect, useState } from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
@@ -11,8 +11,17 @@ L.Icon.Default.mergeOptions({
 	shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
 });
 
-const Leaflet = () => {
+const Leaflet = ({ rota }) => {
+	// const position = [37.4218849, -122.0840619];
 	const position = [-15.8010596434, -47.8800594807];
+
+	const [coordenadas, setCoordenadas] = useState();
+	
+	useEffect(() => {
+		setCoordenadas(rota)
+	}, [rota])
+	
+	console.log(coordenadas);
 
 	return (
 		<MapContainer
@@ -25,7 +34,8 @@ const Leaflet = () => {
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 			/>
-			<Marker position={position} />
+			{ coordenadas && coordenadas.map((coord, index) => <Marker key={index} position={[coord.latitude, coord.longitude]}><Popup>ID: {coord.id}</Popup></Marker> ) }
+			{/* <Marker position={position} /> */}
 		</MapContainer>
 	);
 };

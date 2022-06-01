@@ -5,13 +5,12 @@ import GlobalStyles from "styles/GlobalStyles";
 import { main } from "styles/theme";
 
 function App() {
-
-  return (
-    <ThemeProvider theme={main}>
-      <GlobalStyles />
-      <Router />
-    </ThemeProvider>
-  );
+	return (
+		<ThemeProvider theme={main}>
+			<GlobalStyles />
+			<Router />
+		</ThemeProvider>
+	);
 }
 
 export default App;
