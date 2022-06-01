@@ -11,7 +11,6 @@ export const hexToRGBA = (hex, alpha) => {
         }
 
         c= '0x'+c.join('');
-        console.log('rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+`,${alpha})`);
         return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+`,${alpha})`;
     }
 

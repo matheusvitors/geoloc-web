@@ -13,12 +13,15 @@ const Login = () => {
     
     const navigate = useNavigate();
 
+    document.title = "Geoloc - Login";
+
+
     const submit = async () => {
 
         try {
             const response = await Service.login({matricula, password: senha}); 
             localStorage.setItem('@token', response.data.token);
-            navigate('/mapa');
+            navigate('/rotas');
             
         } catch (error) {
             Alert.error(error.message);

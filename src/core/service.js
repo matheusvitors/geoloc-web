@@ -10,4 +10,21 @@ export const Service = {
         }
     },
 
+    listaRotas: async () => {
+        try {
+            // const response = await api.get('/rotas');
+            return await api.get('/rotas');
+        } catch (error) {
+			return Promise.reject(error);
+        }
+    },
+
+    pegarRota: async (id) => {
+        try {
+            return await api.get(`/rotas/${id}`);
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    }
+
 }
