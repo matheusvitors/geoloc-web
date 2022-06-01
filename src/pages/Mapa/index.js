@@ -16,7 +16,7 @@ const Home = () => {
     useEffect(() => {
         document.title = "Geoloc - Mapa"
         getRota();
-    }, [])
+    })
 
     const getRota = async () => {
         const response = await Service.pegarRota(id);
